@@ -1,0 +1,22 @@
+version :0.2
+
+
+phases:
+  install:
+    commands:
+      - installing Node 14
+      - curl -fsSL https://deb.nodesource.com/setup_14.x |  bash -
+      - apt install -y nodejs
+      
+  pre-build:
+    commands:
+      -echo installing dependecies
+  build:
+    commands:
+    #tests
+    #build
+artifacts:
+  files:
+   -"**/*"
+  discard-paths : no
+  base-directory : dist
