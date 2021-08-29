@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import configData from '../config.json'
 // const[statename,FunToUpdateState]=useState('')
 
 
@@ -16,7 +16,7 @@ class TravelBookings extends Component {
 
 
 componentDidMount(){
-    fetch('https://localhost:44384/api/Travel?travelDate=2021-08-27')
+    fetch(configData.Server_URL+configData.GetBookings)
     .then(res=>res.json())
     .then(json=>{
         this.setState({
