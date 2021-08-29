@@ -8,9 +8,3 @@ phases:
       - curl -fsSL https://deb.nodesource.com/setup_14.x |  bash -
       - apt install -y nodejs
       
-
-artifacts:
-  files:
-   -"**/*"
-  discard-paths : no
-  base-directory : dist
