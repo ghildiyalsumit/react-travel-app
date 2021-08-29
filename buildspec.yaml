@@ -8,13 +8,7 @@ phases:
       - curl -fsSL https://deb.nodesource.com/setup_14.x |  bash -
       - apt install -y nodejs
       
-  pre-build:
-    commands:
-      -echo installing dependecies
-  build:
-    commands:
-    #tests
-    #build
+
 artifacts:
   files:
    -"**/*"
