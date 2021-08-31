@@ -1,67 +1,44 @@
 import React from 'react'
 import TravelAddBooking from './TravelAddBooking'
-import {  useEffect } from 'react'
-// import { useState, useEffect } from 'react'
-// import TravelHeader from './TravelHeader'
-// import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+import configData from '../config.json'
+import Moment from 'moment'
 
 function TravelBody() {
 
     useEffect(() => {
         const getBookings = async () => {
-           // const bookingsFromServer = await fetchBooking()
-           // setBookings(bookingsFromServer)
+
         }
         getBookings()
     }, [])
 
-
-    //Fetch Bookings
-
-    // const fetchBooking = async () => {
-    //     const resp = await fetch(`https://localhost:44384/api/Travel`)
-    //     const data = await resp.json()
-    //     console.log(data)
-    //     return data
-    // }
     //Add Task
     const addTask = async (task) => {
-
-        console.log(task)
-        debugger;
-        // const res = await fetch(`http://52.33.224.212/api/Travel/Update`, {
-        const res = await fetch(`http://localhost:5000/tasks`, {
-            method: 'POST',
+        const idd = uuidv4();
+        const res = await fetch(configData.Server_POST_Bookings + "/items", {
+            method: 'PUT',
             headers: {
+                'Accept': 'application/json',
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(task)
+            body: JSON.stringify({
+                id: idd,
+                createdOn: Moment(new Date()).format('yyyy-MM-DD hh:mm:ss'),
+                name: task.name,
+                age: task.age,
+                members: task.member,
+                fromDest: task.fromDest,
+                toDest: task.toDest,
+                travelDate: task.travelDate
+            })
         })
-        debugger;
-        console.log(res)
         const data = await res.json()
-        console.log(data)
-
-
-
-        // const id=Math.floor(Math.random()*1000)+1
-        // const newBooking={id,...task}
-        //setTravel([...tasks, newBooking])
-
-       
-
-        // setTravel(
-        //     tasks.map((task) =>
-        //       task.id === id ? {
-        //         ...task, reminder:
-        //           data.reminder
-        //       } : task
-        //     )
-        //   )
+        alert(data)
     }
 
     return (
-
         <body>
             <div className="banner">
                 <div className="bg">
@@ -75,7 +52,6 @@ function TravelBody() {
             </div>
 
         </body>
-
     )
 }
 
