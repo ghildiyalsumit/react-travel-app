@@ -8,10 +8,9 @@ const TravelFooter = () => {
             <script>
                 const menuToggle=document.querySelector('.menuToggle');
                 const navigation=document.querySelector('.navigation');
-            
-            }
-            </script>
+             </script>
             <link rel="stylesheet" href="css/style.css"/>
+           
         </div>
     )
 }

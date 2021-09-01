@@ -10,13 +10,13 @@ const TravalAddBooking = ({ onAdd }) => {
     const [toDest, setToDest] = useState('')
 
   
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
         if (!name) {
             alert('Please write name');
             return
         }
-        onAdd({ name, age, member, travelDate, fromDest, toDest })
+        const data = await onAdd({ name, age, member, travelDate, fromDest, toDest })
         setName('')
         setAge('')
         setMember('')
@@ -38,7 +38,7 @@ const TravalAddBooking = ({ onAdd }) => {
             </div>
             <div className="inputBx">
                 <p>Enter Age</p>
-                <input type="text" required placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} />
+                <input type="number" min="1" max="99" pattern="\d*" maxlength="2" required placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} />
             </div>
             <div className="inputBx">
                 <p>Total Members</p>

@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import configData from '../config.json'
-// const[statename,FunToUpdateState]=useState('')
-
-
 
 class TravelBookings extends Component {
 
@@ -14,8 +11,8 @@ class TravelBookings extends Component {
         }
     }
 
-
 componentDidMount(){
+    console.log(configData.Server_URL+configData.GetBookings)
     fetch(configData.Server_URL+configData.GetBookings)
     .then(res=>res.json())
     .then(json=>{

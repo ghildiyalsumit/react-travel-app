@@ -1,6 +1,6 @@
 {
-"Server_URL":"",
-"Client_URL":"",
-"GetBookings":"api/Travel",
+"Server_URL":"http://52.36.106.187",
+"Client_URL":"http://52.36.106.187",
+"GetBookings":"/api/Travel",
 "Server_POST_Bookings":"https://rje01zvb0m.execute-api.us-west-2.amazonaws.com"
 }

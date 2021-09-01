@@ -9,14 +9,17 @@ function TravelBody() {
 
     useEffect(() => {
         const getBookings = async () => {
-
+           
         }
         getBookings()
+        
     }, [])
+
 
     //Add Task
     const addTask = async (task) => {
         const idd = uuidv4();
+        console.log(configData.Server_POST_Bookings)
         const res = await fetch(configData.Server_POST_Bookings + "/items", {
             method: 'PUT',
             headers: {
@@ -37,7 +40,7 @@ function TravelBody() {
         const data = await res.json()
         alert(data)
     }
-
+   
     return (
         <body>
             <div className="banner">
