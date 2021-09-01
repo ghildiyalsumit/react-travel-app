@@ -9,6 +9,7 @@ const TravalAddBooking = ({ onAdd }) => {
     const [fromDest, setFromDest] = useState('')
     const [toDest, setToDest] = useState('')
 
+  
     const onSubmit = (e) => {
         e.preventDefault()
         if (!name) {
@@ -22,34 +23,40 @@ const TravalAddBooking = ({ onAdd }) => {
         setTravelDate('')
         setFromDest('')
         setToDest('')
+        
+        const memberDetails=(id)=>
+        {
+            console.log(id);
+        }
     }
 
     return (
-        <form className="searchBox" id="searchBox" onSubmit={onSubmit}>
+        <form className="searchBox" id="searchBox" onSubmit={onSubmit} >
             <div className="inputBx">
                 <p>Enter Name</p>
-                <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                <input type="text" required placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div className="inputBx">
                 <p>Enter Age</p>
-                <input type="text" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} />
+                <input type="text" required placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} />
             </div>
             <div className="inputBx">
                 <p>Total Members</p>
-                <input type="text" placeholder="Total Members" value={member} onChange={(e) => setMember(e.target.value)} />
+                <input type="number" min="1" max="99" pattern="\d*" maxlength="2"
+                required placeholder="Total Members" value={member} onChange={(e) => setMember(e.target.value)} />
             </div>
             <div className="inputBx">
                 <p>Travel Date</p>
-                <input type="date" placeholder="Travel Date" value={travelDate} onChange={(e) => setTravelDate(e.target.value)} />
+                <input type="date" placeholder="Travel Date" value={travelDate} pattern="\d{1,2}/\d{1,2}/\d{4}" onChange={(e) => setTravelDate(e.target.value)} />
             </div>
             <div className="inputBx">
                 <p>From Destination</p>
-                <input type="text" placeholder="From Destination" value={fromDest} onChange={(e) => setFromDest(e.target.value)} />
+                <input type="text" required placeholder="From Destination" value={fromDest} onChange={(e) => setFromDest(e.target.value)} />
             </div>
 
             <div className="inputBx">
                 <p>To Destination</p>
-                <input type="text" placeholder="To Destination" value={toDest} onChange={(e) => setToDest(e.target.value)} />
+                <input type="text" required placeholder="To Destination" value={toDest} onChange={(e) => setToDest(e.target.value)} />
             </div>
             <div className="inputBx">
                 <p className="white">_</p>
